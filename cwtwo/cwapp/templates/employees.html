@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+<head>
+    {% load static %}
+    <title>Employee Directory</title>
+    <link rel="stylesheet" href="{% static 'style.css' %}">
+</head>
+<body>
+
+    <h1>Employee Directory</h1>
+
+    {% if employees %}
+        <ul>
+            {% for emp in employees %}
+                <li>
+                    <strong>{{ emp.name }}</strong> - {{ emp.job }} - ₹{{ emp.salary }}
+
+                    {% if emp.full_time %}
+                        <span class="full-time">Full-Time</span>
+                    {% else %}
+                        <span class="part-time">Part-Time</span>
+                    {% endif %}
+                </li>
+            {% endfor %}
+        </ul>
+    {% else %}
+        <p>No employees available.</p>
+    {% endif %}
+
+</body>
+</html>
