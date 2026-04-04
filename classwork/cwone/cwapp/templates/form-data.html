@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title></title>
+</head>
+<body>
+    <h2>Welcome {{ username }},</h2>
+
+<h3>Full Form Data:</h3>
+<ul>
+    {% for key, value in data.items %}
+        <li><b>{{ key }}</b> : {{ value }}</li>
+    {% endfor %}
+</ul>
+</body>
+</html>

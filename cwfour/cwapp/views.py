@@ -1,5 +1,5 @@
 from django.shortcuts import render
-def greeting(request):
+def form_view(request):
     if request.GET:
         username = request.GET.get('username')
         return render(request,'form-data.html',{
@@ -7,3 +7,5 @@ def greeting(request):
             'username': username
         })
     return render(request,'index.html' )
+
+# Create your views here.
