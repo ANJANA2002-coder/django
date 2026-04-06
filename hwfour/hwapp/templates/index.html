@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Favorite Color Form</title>
+    <style>
+        body {
+            font-family: Arial;
+            text-align: center;
+            margin-top: 50px;
+        }
+        .result {
+            margin-top: 20px;
+            padding: 15px;
+            border: 1px solid #ccc;
+            display: inline-block;
+        }
+    </style>
+</head>
+<body>
+
+    {% if name and color %}
+        <div class="result">
+            <h3>Hello {{ name }}, your favorite color is {{ color }}!</h3>
+
+            <h4>Submitted Data:</h4>
+            <p>Name: {{ name }}</p>
+            <p>Color: {{ color }}</p>
+        </div>
+    {% endif %}
+
+</body>
+</html>

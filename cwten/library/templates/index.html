@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Library</title>
+</head>
+<body>
+
+<h2>Book List</h2>
+<a href="/add/">Add Book</a>
+
+<table border="1">
+<tr>
+    <th>Title</th>
+    <th>Author</th>
+    <th>Year</th>
+    <th>Actions</th>
+</tr>
+
+{% for book in page_obj %}
+<tr>
+    <td>{{ book.title }}</td>
+    <td>{{ book.author }}</td>
+    <td>{{ book.year }}</td>
+    <td>
+        <a href="/edit/{{ book.id }}">Edit</a>
+        <a href="/delete/{{ book.id }}">Delete</a>
+    </td>
+</tr>
+{% empty %}
+<tr><td colspan="4">No books found</td></tr>
+{% endfor %}
+</table>
+
+<!-- Pagination -->
+<div>
+    {% if page_obj.has_previous %}
+        <a href="?page={{ page_obj.previous_page_number }}">Previous</a>
+    {% endif %}
+
+    Page {{ page_obj.number }} of {{ page_obj.paginator.num_pages }}
+
+    {% if page_obj.has_next %}
+        <a href="?page={{ page_obj.next_page_number }}">Next</a>
+    {% endif %}
+</div>
+
+</body>
+</html>

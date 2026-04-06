@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Result</title>
+</head>
+<body>
+
+<h1>Student Result</h1>
+
+{% if student %}
+    <p>Name: {{ student.name }}</p>
+    <p>Marks: {{ student.marks }}</p>
+
+    {% if student.marks >= 50 %}
+        <p>Status: Pass</p>
+    {% else %}
+        <p>Status: Fail</p>
+    {% endif %}
+
+{% else %}
+    <p>Student not found</p>
+{% endif %}
+
+<a href="/">Back to Home</a>
+
+</body>
+</html>
