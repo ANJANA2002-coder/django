@@ -1,0 +1,13 @@
+{% extends 'mtestapp/base.html' %}
+
+{% block content %}
+<h3>Login</h3>
+
+<form method="post">
+    {% csrf_token %}
+    {{ form.as_p }}
+    <button type="submit">Login</button>
+</form>
+
+<a href="/signup/">Signup</a>
+{% endblock %}

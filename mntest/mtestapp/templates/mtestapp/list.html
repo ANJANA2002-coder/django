@@ -1,0 +1,40 @@
+{% extends 'mtestapp/base.html' %}
+
+{% block content %}
+
+<h3>Your Bookmarks</h3>
+
+<form method="get">
+    <input type="text" name="q" placeholder="Search">
+    <button type="submit">Search</button>
+</form>
+
+<br>
+
+{% for bookmark in page_obj %}
+    <p>
+        <b>{{ bookmark.title }}</b><br>
+        <a href="{{ bookmark.url }}">{{ bookmark.url }}</a><br>
+        {{ bookmark.created_at }}<br>
+
+        <a href="/edit/{{ bookmark.id }}/">Edit</a> |
+        <a href="/delete/{{ bookmark.id }}/">Delete</a>
+    </p>
+    <hr>
+{% empty %}
+    <p>No bookmarks found</p>
+{% endfor %}
+
+<div>
+    {% if page_obj.has_previous %}
+        <a href="?page={{ page_obj.previous_page_number }}">Previous</a>
+    {% endif %}
+
+    Page {{ page_obj.number }} of {{ page_obj.paginator.num_pages }}
+
+    {% if page_obj.has_next %}
+        <a href="?page={{ page_obj.next_page_number }}">Next</a>
+    {% endif %}
+</div>
+
+{% endblock %}

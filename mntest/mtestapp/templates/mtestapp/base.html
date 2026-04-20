@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Bookmark App</title>
+</head>
+<body>
+
+<h2>Bookmark Manager</h2>
+
+{% if user.is_authenticated %}
+    <a href="/">Home</a> |
+    <a href="/add/">Add</a> |
+    <a href="/logout/">Logout</a>
+    <hr>
+{% endif %}
+
+{% block content %}
+{% endblock %}
+
+</body>
+</html>
